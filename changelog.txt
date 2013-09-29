@@ -1,0 +1,54 @@
+v1.7, 10. 9. 2013
+-----------------
+- NEW: Claim listing
+- Fixed modal windows (lightbox)
+- Small CSS fixes
+
+v1.6, 05. 9. 2013
+-----------------
+- Search fix
+- Added single item Gallery to users capabilities
+- Fixed styles for Contact owner popup
+
+
+v1.5, 04. 9. 2013
+-----------------
+- Changed Files: Templates/header.php, conf/theme-config.neon, functions/directory.php, functions.php, header.php, Templates/page-dir-home.php
+- NEW: Hierarchical search dropdowns
+- Change author for item fix
+- Homepage content fix
+
+
+v1.4, 02. 9. 2013
+-----------------
+- Changed Files: style.less.css
+- current-page-ancestor, current-menu-ancestor classes changed. Highlighting when on blog
+
+
+v1.3, 28. 8. 2013
+---------------
+- Changed Files: functions/rating.php
+- Rating management fix
+
+
+v1.2, 27. 8. 2013
+---------------
+- Changed Files: responsive.less, js/script.js, js/libs/jquery.jcarousel.min.js, functions.php, style.less.css, templates/single-ait-dir-item.php, conf/_ait-dir-item.neon, templates/header.php, templates/snippets/branding-header.php, defaultcontent-export.xml
+- Added gallery in single item
+- Fixes for mobile view
+- Account administration buttons added to login/register widget
+- Minor changes to defaultcontent-export.xml
+
+
+v1.1, 26.8.2013
+---------------
+- Changed Files: responsive.less, businessfinder.pot, style.less.css, templates/snippets/branding-header.php, defaultcontent-export.xml
+- .pot file updated
+
+- fixes for mobile view
+- minor changes to defaultcontent-export.xml
+
+
+v1.0, 26.8.2013
+---------------
+- Theme relase

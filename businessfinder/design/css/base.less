@@ -1,0 +1,677 @@
+/* =======================================================
+    CONFIGURATION
+   ======================================================= */
+
+   /*
+    * Sizes of site and elements
+    */
+   
+   @siteWidth       = 1000px;
+   @contentWidth    = 650px;
+  
+
+   /*
+    * Fonts
+    */
+
+   @fancyFont          = "ralewayregular";
+   @fancyFontBold      = "ralewayextrabold";
+   @fancyFontLight     = "ralewayextralight";
+
+
+   /*
+    * Column Shortcodes
+    */
+
+    @onecolumn                      = @siteWidth;
+    @onecolumnRightMargin           = 40px;
+
+    @withSidebar                    = @contentWidth;
+    @withSidebarRightMargin         = 50px;
+
+    @insideTabs                     = @contentWidth - 40px;
+    @insideTabsRightMargin          = 42px;
+
+    @onecolumnInsideTabs            = @siteWidth - 40px;
+    @onecolumnInsideTabsRightMargin = 44px;
+
+    @oneHalf                        = (@withSidebar - @withSidebarRightMargin) / 2;
+    @oneThird                       = (@withSidebar - (2 * @withSidebarRightMargin)) / 3;
+    @twoThird                       = (2 * @oneThird) + @withSidebarRightMargin;
+    @oneFourth                      = (@withSidebar - (3 * @withSidebarRightMargin)) / 4;
+    @threeFourth                    = (3 * @oneFourth) +  (2 * @withSidebarRightMargin);
+
+    @onecolumnOneHalf               = (@onecolumn - @onecolumnRightMargin) / 2;
+    @onecolumnOneThird              = (@onecolumn - (2 * @onecolumnRightMargin)) / 3;
+    @onecolumnTwoThird              = (2 * @onecolumnOneThird) + @onecolumnRightMargin;
+    @onecolumnOneFourth             = (@onecolumn - (3 * @onecolumnRightMargin)) / 4;
+    @onecolumnThreeFourth           = (3 * @onecolumnOneFourth) +  (2 * @onecolumnRightMargin);
+
+    @insideTabsOneHalf              = (@insideTabs - @insideTabsRightMargin) / 2;
+    @insideTabsOneThird             = (@insideTabs - (2 * @insideTabsRightMargin)) / 3;
+    @insideTabsTwoThird             = (2 * @insideTabsOneThird) + @insideTabsRightMargin;
+    @insideTabsOneFourth            = (@insideTabs - (3 * @insideTabsRightMargin)) / 4;
+    @insideTabsThreeFourth          = (3 * @insideTabsOneFourth) +  (2 * @insideTabsRightMargin);
+
+    @onecolumnInsideTabsOneHalf     = (@onecolumnInsideTabs - @onecolumnInsideTabsRightMargin) / 2;
+    @onecolumnInsideTabsOneThird    = (@onecolumnInsideTabs - (2 * @onecolumnInsideTabsRightMargin)) / 3;
+    @onecolumnInsideTabsTwoThird    = (2 * @onecolumnInsideTabsOneThird) + @onecolumnInsideTabsRightMargin;
+    @onecolumnInsideTabsOneFourth   = (@onecolumnInsideTabs - (3 * @onecolumnInsideTabsRightMargin)) / 4;
+    @onecolumnInsideTabsThreeFourth = (3 * @onecolumnInsideTabsOneFourth) +  (2 * @onecolumnInsideTabsRightMargin);
+
+    .sc-column {
+      float: left; padding: 10px 0px; margin-right: @withSidebarRightMargin;
+    }
+
+    .onecolumn .sc-column {
+      margin-right: @onecolumnRightMargin;
+    }
+
+    .ui-widget-content .sc-column {
+      margin-right: @insideTabsRightMargin;
+    }
+
+    .onecolumn .ui-widget-content .sc-column {
+      margin-right: @onecolumnInsideTabsRightMargin;
+    }
+
+    .sc-column.sc-column-last,
+    .onecolumn .ui-widget-content .sc-column-last {
+      margin-right: 0; }
+
+    .sc-column.one-full { width: @withSidebar; }
+    .sc-column.one-half, .sc-column.one-half-last { width: @oneHalf; }
+    .sc-column.one-third, .sc-column.one-third-last { width: @oneThird; }
+    .sc-column.two-third, .sc-column.two-third-last { width: @twoThird; }
+    .sc-column.one-fourth, .sc-column.one-fourth-last { width: @oneFourth; }
+    .sc-column.three-fourth, .sc-column.three-fourth-last { width: @threeFourth; }
+
+    .onecolumn .sc-column.one-full { width: @onecolumn; }
+    .onecolumn .sc-column.one-half, .onecolumn .sc-column.one-half-last { width: @onecolumnOneHalf; }
+    .onecolumn .sc-column.one-third, .onecolumn .sc-column.one-third-last { width: @onecolumnOneThird; }
+    .onecolumn .sc-column.two-third, .onecolumn .sc-column.two-third-last { width: @onecolumnTwoThird; }
+    .onecolumn .sc-column.one-fourth, .onecolumn .sc-column.one-fourth-last { width: @onecolumnOneFourth; }
+    .onecolumn .sc-column.three-fourth, .onecolumn .sc-column.three-fourth-last { width: @onecolumnThreeFourth; }
+
+    .ui-widget-content .sc-column.one-full { width: @insideTabs; }
+    .ui-widget-content .sc-column.one-half, .ui-widget-content .sc-column.one-half-last { width: @insideTabsOneHalf; }
+    .ui-widget-content .sc-column.one-third, .ui-widget-content .sc-column.one-third-last { width: @insideTabsOneThird; }
+    .ui-widget-content .sc-column.two-third, .ui-widget-content .sc-column.two-third-last { width: @insideTabsTwoThird; }
+    .ui-widget-content .sc-column.one-fourth, .ui-widget-content .sc-column.one-fourth-last { width: @insideTabsOneFourth; }
+    .ui-widget-content .sc-column.three-fourth, .ui-widget-content .sc-column.three-fourth-last { width: @insideTabsThreeFourth; }
+
+    .onecolumn .ui-widget-content .sc-column.one-full { width: @onecolumnInsideTabs; }
+    .onecolumn .ui-widget-content .sc-column.one-half, .onecolumn .ui-widget-content .sc-column.one-half-last { width: @onecolumnInsideTabsOneHalf; }
+    .onecolumn .ui-widget-content .sc-column.one-third, .onecolumn .ui-widget-content .sc-column.one-third-last { width: @onecolumnInsideTabsOneThird; }
+    .onecolumn .ui-widget-content .sc-column.two-third, .onecolumn .ui-widget-content .sc-column.two-third-last { width: @onecolumnInsideTabsTwoThird; }
+    .onecolumn .ui-widget-content .sc-column.one-fourth, .onecolumn .ui-widget-content .sc-column.one-fourth-last { width: @onecolumnInsideTabsOneFourth; }
+    .onecolumn .ui-widget-content .sc-column.three-fourth, .onecolumn .ui-widget-content .sc-column.three-fourth-last { width: @onecolumnInsideTabsThreeFourth; }
+
+
+/* =======================================================
+    CSS RESET
+   ======================================================= */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html {
+    font-family: sans-serif; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/*
+ * Corrects `block` display not defined in IE 8/9.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/*
+ * Corrects `inline-block` display not defined in IE 8/9.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE 8/9.
+ */
+
+[hidden] {
+    display: none;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+dfn {
+    font-style: italic;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+code, kbd, pre, samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Sets default font family to sans-serif.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    font-family: sans-serif; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+/*
+ * Removes default margin.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/*
+ * Addresses `h1` font sizes within `section` and `article` in Firefox 4+,
+ * Safari 5, and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+}
+
+/*
+ * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+/*
+ * Addresses styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE 8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+
+/*
+ * Corrects font family set oddly in Safari 5 and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/*
+ * Sets consistent quote types.
+ */
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/*
+ * Addresses inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * Removes border when inside `a` element in IE 8/9.
+ */
+
+img {
+    border: 0;
+}
+
+/*
+ * Corrects overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/*
+ * Addresses margin not present in IE 8/9 and Safari 5.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/*
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/*
+ * 1. Corrects font family not being inherited in all browsers.
+ * 2. Corrects font size not being inherited in all browsers.
+ * 3. Addresses margins set differently in Firefox 4+, Safari 5, and Chrome
+ */
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+}
+
+/*
+ * Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to `content-box` in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE 8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/*
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* =======================================================
+    SHORTHANDS
+   ======================================================= */   
+
+   .wrapper         { .clearfix(); width: @siteWidth; margin-left: auto; margin-right: auto; }
+   .content-wrapper { .clearfix(); width: @contentWidth; }
+
+   .left, .fl       { float: left; }
+   .right, .fr      { float: right; }
+
+   .inline          { display: inline; }
+   .block           { display: block; }
+   .inline-block    { display: inline-block; }
+   .table           { display: table; }
+   .table-row       { display: table-row; }
+   .table-cell      { display: table-cell; }
+  
+   .hidden           { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; border: 0; clip: rect(0 0 0 0); overflow: hidden; }
+   .image-replace   { text-indent: 100%; white-space: nowrap; overflow: hidden; }
+
+  .center           { text-align: center; }
+  .aligncenter      { margin: auto; text-align: center; margin-bottom: 20px; display: block !important;}
+  .alignleft        { float: left; margin: 0px 20px 20px 0px; }
+  .alignright       { float: right; margin: 0px 0px 20px 20px; }
+  .cleanmargin      { margin: 0px !important; }
+  .clean-margin     { margin: 0px !important; }
+  .cleanpadding     { padding: 0px !important; }
+  .clean-padding    { padding: 0px !important; }
+  .clean-line       { line-height: normal !important; }
+  .clean-line       { line-height: normal !important; }
+
+  .decor-color      { color: @firstThemeColor; }
+  .decor-bg         { background-color: @firstThemeColor; }
+
+  .decor-color      { color: @secondThemeColor; }
+  .decor-bg         { background-color: @secondThemeColor; }
+
+  .fancyFont        { font-family: @fancyFont; }
+  .fancyFontBold    { font-family: @fancyFontBold; }
+  .fancyFontLight   { font-family: @fancyFontLight; }
+
+/* =======================================================
+    LESS MIXINS
+   ======================================================= */
+
+.clearfix, .clear {
+	*zoom: 1;
+	&:before, &:after {
+		display: table; content: ""; }
+	&:after {
+		clear: both; }
+}
+
+.border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.border-radius(@radius: 100%) {
+  -webkit-border-radius:  @radius; 
+  -moz-border-radius:     @radius; 
+  border-radius:          @radius;
+}
+
+.box-shadow(@args) {
+  -webkit-box-shadow:     @args;
+  -moz-box-shadow:        @args;
+  box-shadow:             @args;
+}
+
+.transition(@args) {
+    -webkit-transition:   @args;
+    -moz-transition:      @args;
+    -ms-transition:       @args;
+    -o-transition:        @args;
+    transition:           @args;
+}
+
+.rotate(@deg) {
+    -webkit-transform:    rotate(@deg);
+    -moz-transform:       rotate(@deg);
+    -ms-transform:        rotate(@deg);
+    -o-transform:         rotate(@deg);
+    transform:            rotate(@deg);
+}
+ 
+.scale(@factor) {
+    -webkit-transform:    scale(@factor);
+    -moz-transform:       scale(@factor);
+    -ms-transform:        scale(@factor);
+    -o-transform:         scale(@factor);
+    transform:            scale(@factor);
+}
+ 
+.translate(@args) {
+    -webkit-transform:    translate(@args);
+    -moz-transform:       translate(@args);
+    -ms-transform:        translate(@args);
+    -o-transform:         translate(@args);
+    transform:            translate(@args);
+}
