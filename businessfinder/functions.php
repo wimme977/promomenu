@@ -15,6 +15,8 @@ $aitThemeWidgets = array('post', 'flickr', 'submenu', 'twitter', 'directory-logi
 $aitEditorShortcodes = array('custom', 'columns', 'images', 'posts', 'buttons', 'boxesFrames', 'lists', 'notifications', 'modal', 'social', 'video', 'gMaps', 'gChart', 'portfolio', 'language', 'tabs', 'gridgallery', 'econtent');
 $aitThemeShortcodes = array('boxesFrames' => 2, 'buttons' => 1, 'columns'=> 1, 'custom'=> 1, 'images'=> 1, 'lists'=> 1, 'modal'=> 1, 'notifications'=> 1, 'portfolio'=> 1, 'posts'=> 1, 'sitemap'=> 1, 'social'=> 1, 'video'=> 1, 'language'=> 1, 'gMaps'=> 1, 'gChart'=> 1, 'tabs'=> 1, 'gridgallery'=> 1, 'econtent' => 1, 'directoryRegister' => 1);
 
+// use pretty photo modal windows shortcode
+$GLOBALS['aitUsePrettyModalSortcode'] = true;
 
 // ==================================================
 // Loads AIT WordPress Framework

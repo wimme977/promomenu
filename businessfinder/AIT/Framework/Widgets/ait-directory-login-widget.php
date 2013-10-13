@@ -49,8 +49,10 @@ class Directory_Widget extends WP_Widget {
 				echo '<div class="profile-role"><span>'.__('Account: ','ait').'</span>'.$wp_roles->role_names[$currUser->roles[0]] .'</div>';
 			}
 
-			echo '<a href="'.admin_url('edit.php?post_type=ait-dir-item').'" title="My Items" class="widgetlogin-button-myitems">'.__('My Items','ait').'</a>';
-			echo '<a href="'.admin_url('edit.php?post_type=ait-rating').'" title="Ratings" class="widgetlogin-button-ratings">'.__('Ratings','ait').'</a>';
+			if (!in_array('subscriber', $currUser->roles)) {
+				echo '<a href="'.admin_url('edit.php?post_type=ait-dir-item').'" title="My Items" class="widgetlogin-button-myitems">'.__('My Items','ait').'</a>';
+				echo '<a href="'.admin_url('edit.php?post_type=ait-rating').'" title="Ratings" class="widgetlogin-button-ratings">'.__('Ratings','ait').'</a>';
+			}
 			echo '<a href="'.admin_url('profile.php').'" title="Account" class="widgetlogin-button-account">'.__('Account','ait').'</a>';
 
 			echo '<a href="'.wp_logout_url(get_permalink()).'" title="Logout" class="widgetlogin-button-logout">'.__('Logout','ait').'</a>';
@@ -92,15 +94,40 @@ class Directory_Widget extends WP_Widget {
 							$roleEnable = 'role'.$i.'Enable';
 							$roleName = 'role'.$i.'Name';
 							$rolePrice = 'role'.$i.'Price';
+							if (isset($aitThemeOptions->members->paypalPaymentType) && ($aitThemeOptions->members->paypalPaymentType == 'recurring')) {
+								$periodName = 'role'.$i.'Period';
+								$rolePeriod = __('year','ait');
+								switch ($aitThemeOptions->members->$periodName) {
+									case 'year':
+										$rolePeriod = __('year','ait');
+										break;
+									case 'month':
+										$rolePeriod = __('month','ait');
+										break;
+									case 'week':
+										$rolePeriod = __('week','ait');
+										break;
+									case 'day':
+										$rolePeriod = __('day','ait');
+										break;
+								}
+							}
 							$free = (trim($aitThemeOptions->members->$rolePrice) == '0') ? true : false;
 							if(isset($aitThemeOptions->members->$roleEnable)){
-								echo '<option value="directory_'.$i.'"';
-								if($free) { echo ' class="free"'; }
-								echo '>'.$aitThemeOptions->members->$roleName;
-								if(!$free) { echo ' ('.$aitThemeOptions->members->$rolePrice.' '.$currency.')'; } else { echo ' ('.__('Free','ait').')'; }
+								echo '<option value="directory_'.$i.'"'; if($free) { echo ' class="free"'; } echo '>'.$aitThemeOptions->members->$roleName;
+								if(!$free) {
+									if (isset($aitThemeOptions->members->paypalPaymentType) && ($aitThemeOptions->members->paypalPaymentType == 'recurring')) {
+										echo ' - '.trim($aitThemeOptions->members->$rolePrice).' '.$currency.' '.__('per','ait').' '.$rolePeriod;
+									} else {
+										echo ' ('.$aitThemeOptions->members->$rolePrice.' '.$currency.')';
+									}
+								} else {
+									echo ' ('.__('Free','ait').')'; 
+								}
 								echo '</option>';
 							}
-						} ?>
+						}
+						?>
 						</select>
 					</div>
 					<div class="login-fields">

@@ -306,9 +306,11 @@
 </div>
 {/ifset}
 
+{ifset $themeOptions->rating->enableRating}
 <div class="ait-rating-system-holder">
 	{!getAitRatingElement($post->id)}
 </div>
+{/ifset}
 
 <div class="comments-holder">
 	{include comments-dir.php, closeable => $themeOptions->general->closeComments, defaultState => $themeOptions->general->defaultPosition}

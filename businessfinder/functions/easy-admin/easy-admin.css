@@ -16,6 +16,7 @@
 #posts-filter .tablenav 				{ display: none; }
 #posts-filter .wp-list-table tfoot 		{ display: none; }
 #posts-filter .search-box 				{ display: none; }
+#icl_subsubsub 							{ display: none; }
 
 /* add new item */
 .add-new-h2 							{ display: none; }

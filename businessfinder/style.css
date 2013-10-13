@@ -4,7 +4,7 @@ Theme URI: http://preview.ait-themes.com/businessfinder/wp1
 Author: AitThemes
 Author URI: http://www.ait-themes.com
 Description: Follow us on <a href="http://themeforest.net/user/ait/follow">Themeforest</a> or <a href="http://twitter.com/AitThemes">Twitter</a>
-Version: 1.7
+Version: 1.9
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl.html
 */
@@ -809,6 +809,7 @@ div.wpcf7 { margin-bottom:20px; }
 #posts-filter .tablenav { display:none; }
 #posts-filter .wp-list-table tfoot { display:none; }
 #posts-filter .search-box { display:none; }
+#icl_subsubsub { display:none; }
 .add-new-h2 { display:none; }
 .ait-easy-admin-footer {
   max-width:1000px;
@@ -1839,7 +1840,7 @@ blockquote cite {
 }
 .category-subcategories .heading h3 {
   display:table-cell;
-  padding-left:25px;
+  padding-left:15px;
   margin-bottom:0;
   font-size:16px;
   line-height:26px;
@@ -4079,8 +4080,8 @@ a.cboxElement { display:block; }
 .wp-admin #wpwrap .mainmenu { margin-top:31px; }
 .wp-admin #wpwrap .menu-login:hover, .wp-admin #wpwrap .menu-register:hover { color:#ffffff; }
 .wp-admin #wpwrap #footer-text { float:none; }
-@media (max-width: 768px) {
-  body { max-width:768px; }
+@media (max-width: 800px) {
+  body { max-width:800px; }
   .wrapper, #content, .comments-holder, #ait-rating-system { width:700px; }
   .header-holder { text-align:center; }
   #branding { padding-top:25px; }
@@ -4172,7 +4173,12 @@ a.cboxElement { display:block; }
     padding:20px 0 0;
     text-align:center;
   }
-  .category-subcategories .heading h3 { font-size:15px; }
+  .category-subcategories .heading h3 { font-size:14px; }
+  .category-subcategories .heading h3 a {
+    display:block;
+    width:82px;
+    overflow:hidden;
+  }
   .section-best-places .items-grid-view .item.sc-column, .section-recent-places .items-grid-view .item.sc-column { width:221px; }
   #footer-widgets { text-align:left; }
   #footer-widgets .widget {
@@ -4568,7 +4574,7 @@ a.cboxElement { display:block; }
   .widget_faq ul li span strong, .widget_posts h3 a { font-family:"ralewayextrabold"; }
   .items-grid-view .item-address { font-size:16px; }
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .sc-column {
     float:left;
     padding:10px 0px;

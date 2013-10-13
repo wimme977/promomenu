@@ -1,14 +1,3 @@
-{ifset $_GET['dir-register-status']}
-<div id="ait-dir-register-notifications" class="{if $_GET['dir-register-status'] == '3'}error{else}info{/if}">
-	{if $_GET['dir-register-status'] == '3'}
-	<div class="message wrapper">
-	{__ "You canceled payment. Your account was registered but without option to add items. Upgrade your account in admin to add items."}
-	<div class="close"></div>
-	</div>
-	{/if}
-</div>
-{/ifset}
-
 {ifset $registerErrors}
 <div id="ait-dir-register-notifications" class="error">
 	<div class="message wrapper">
@@ -51,7 +40,7 @@
 			{/if}
 		</div>
 		
-		<div class="menu-container clearfix right">
+		<div class="menu-container right{if !is_admin()} clearfix{/if}">
 			
 		<div class="other-buttons">
 			
@@ -81,36 +70,40 @@
 			{/if}
 			
 			{if is_admin()}
-			<!-- EASY ADMIN MENU -->
-			{var $screen = get_current_screen()}
-			<a href="{!admin_url('edit.php?post_type=ait-dir-item')}" class="items button{if (($screen->base == 'edit' && $screen->post_type == 'ait-dir-item') || ($screen->base == 'post' && $screen->post_type == 'ait-dir-item'))} button-primary{/if}">
-				{__ 'My Items'}
-			</a>
-			<a href="{!admin_url('edit.php?post_type=ait-rating')}" class="ratings button{if ($screen->base == 'edit' && $screen->post_type == 'ait-rating')} button-primary{/if}">
-				{__ 'Ratings'}
-			</a>
-			<a href="{!admin_url('profile.php')}" class="account button{if ($screen->base == 'profile')} button-primary{/if}">
-				{__ 'Account'}
-			</a>
-			<a href="{home_url()}" class="view-site button">
-				{__ 'View site'}
-			</a>
+				<!-- EASY ADMIN MENU -->
+				{var $screen = get_current_screen()}
+				{var $subscriber = in_array('subscriber', $GLOBALS['current_user']->roles)}
+
+				{if !$subscriber}
+				<a href="{!admin_url('edit.php?post_type=ait-dir-item')}" class="items button{if (($screen->base == 'edit' && $screen->post_type == 'ait-dir-item') || ($screen->base == 'post' && $screen->post_type == 'ait-dir-item'))} button-primary{/if}">
+					{__ 'My Items'}
+				</a>
+				<a href="{!admin_url('edit.php?post_type=ait-rating')}" class="ratings button{if ($screen->base == 'edit' && $screen->post_type == 'ait-rating')} button-primary{/if}">
+					{__ 'Ratings'}
+				</a>
+				{/if}
+				<a href="{!admin_url('profile.php')}" class="account button{if ($screen->base == 'profile')} button-primary{/if}">
+					{__ 'Account'}
+				</a>
+				<a href="{home_url()}" class="view-site button">
+					{__ 'View site'}
+				</a>
 			{/if}
 
 			{ifset $themeOptions->general->loginMenuItem}
-			{if is_user_logged_in()}
-				<a href="{!wp_logout_url(home_url())}" class="menu-login menu-logout clearfix right">{__ "Logout"}</a>
-				{if !is_admin()}
-				<a href="{!admin_url('edit.php?post_type=ait-dir-item')}" class="menu-login menu-admin clearfix right">{__ "Admin"}</a>
+				{if is_user_logged_in()}
+					<a href="{!wp_logout_url(home_url())}" class="{if is_admin()}login button{else}menu-login menu-logout clearfix right{/if}">{__ "Logout"}</a>
+					{if !is_admin()}
+					<a href="{!admin_url()}" class="menu-login menu-admin clearfix right">{__ "Admin"}</a>
+					{/if}
+				{else}
+					<a href="{!wp_login_url()}" class="{if is_admin()}login button{else}menu-login not-logged clearfix right{/if}">{__ "Login"}</a>
+					<div style="display: none;">
+						<div id="dir-login-form-popup">
+							{wp_login_form( array( 'form_id' => 'ait-dir-login-popup' ) )}
+						</div>
+					</div>
 				{/if}
-			{else}
-			<a href="{!wp_login_url()}" class="menu-login not-logged clearfix right">{__ "Login"}</a>
-			<div style="display: none;">
-				<div id="dir-login-form-popup">
-					{wp_login_form( array( 'form_id' => 'ait-dir-login-popup' ) )}
-				</div>
-			</div>
-			{/if}
 			{/ifset}
 
 		</div>

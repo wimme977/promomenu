@@ -1,8 +1,25 @@
+v1.9, 25. 9. 2013
+-----------------
+- Fixed responsive breakpoint to match higher resolution tablets
+- Claim listing fix
+
+
+v1.8, 18. 9. 2013
+-----------------
+- NEW: Paypal recurring payments
+- NEW: Many admin improvements (ratings, users)
+- NEW: Shortcodes is-user, is-guest
+- NEW: Claim listing admin emails
+- Easy admin fixes
+- Rating fixes
+
+
 v1.7, 10. 9. 2013
 -----------------
 - NEW: Claim listing
 - Fixed modal windows (lightbox)
 - Small CSS fixes
+
 
 v1.6, 05. 9. 2013
 -----------------

@@ -24,12 +24,36 @@ function directory_register( $atts ) {
 					$roleEnable = 'role'.$i.'Enable';
 					$roleName = 'role'.$i.'Name';
 					$rolePrice = 'role'.$i.'Price';
+					if (isset($aitThemeOptions->members->paypalPaymentType) && ($aitThemeOptions->members->paypalPaymentType == 'recurring')) {
+						$periodName = 'role'.$i.'Period';
+						$rolePeriod = __('year','ait');
+						switch ($aitThemeOptions->members->$periodName) {
+							case 'Year':
+								$rolePeriod = __('year','ait');
+								break;
+							case 'Month':
+								$rolePeriod = __('month','ait');
+								break;
+							case 'Week':
+								$rolePeriod = __('week','ait');
+								break;
+							case 'Day':
+								$rolePeriod = __('day','ait');
+								break;
+						}
+					}
 					$free = (trim($aitThemeOptions->members->$rolePrice) == '0') ? true : false;
 					if(isset($aitThemeOptions->members->$roleEnable)){
-						echo '<option value="directory_'.$i.'"';
-						if($free) { echo ' class="free"'; }
-						echo '>'.$aitThemeOptions->members->$roleName;
-						if(!$free) { echo ' ('.$aitThemeOptions->members->$rolePrice.' '.$currency.')'; } else { echo ' ('.__('Free','ait').')'; }
+						echo '<option value="directory_'.$i.'"'; if($free) { echo ' class="free"'; } echo '>'.$aitThemeOptions->members->$roleName;
+						if(!$free) {
+							if (isset($aitThemeOptions->members->paypalPaymentType) && ($aitThemeOptions->members->paypalPaymentType == 'recurring')) {
+								echo ' - '.trim($aitThemeOptions->members->$rolePrice).' '.$currency.' '.__('per','ait').' '.$rolePeriod;
+							} else {
+								echo ' ('.$aitThemeOptions->members->$rolePrice.' '.$currency.')';
+							}
+						} else {
+							echo ' ('.__('Free','ait').')';
+						}
 						echo '</option>';
 					}
 				}

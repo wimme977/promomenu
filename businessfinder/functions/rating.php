@@ -1,18 +1,21 @@
 <?php
+
 /**
  * MULTI-RATING SYSTEM WITH AJAX
  */
-add_action('init', 'aitRatingCustomInit');
-add_action('admin_head', 'aitRemoveAddRatingButton');
-add_action('admin_head', 'aitRatingRemoveAdd');
-add_filter('manage_ait-rating_posts_columns', 'aitRatingChangeColumns');
-add_action('manage_posts_custom_column', 'aitRatingCustomColumns', 10, 2);
-add_filter('pre_get_posts','aitRatingTableEdit');
-add_filter('views_edit-ait-rating','aitRatingShowCorrectTableNumbers');
-add_action('edit_post', 'aitSaveRatingMeanToDB', 10, 2);
+add_action( 'init', 'aitRatingCustomInit' );
+add_action( 'admin_head', 'aitRatingRemoveAddButton' );
+add_filter( 'pre_get_posts', 'aitRatingTableDontShowOthersRatings' );
+add_filter( 'views_edit-ait-rating', 'aitRatingShowCorrectTableNumbers' );
+add_action( 'edit_post', 'aitSaveRatingMeanToDB', 10, 2 );
+add_filter( 'manage_ait-rating_posts_columns', 'aitRatingChangeColumns' );
+add_action( 'manage_posts_custom_column', 'aitRatingCustomColumns', 10, 2 );
+add_action( 'admin_head', 'aitRatingStyles' );
+add_action( 'add_meta_boxes', 'aitRatingEditShowDetails' );
+add_action( 'admin_notices','aitShowApprovedRatingNotice');
 
-add_action('wp_ajax_nopriv_ait_rate_item', 'aitRateItem');
-add_action('wp_ajax_ait_rate_item', 'aitRateItem');
+add_action( 'wp_ajax_nopriv_ait_rate_item', 'aitRateItem' );
+add_action( 'wp_ajax_ait_rate_item', 'aitRateItem' );
 
 function aitRatingCustomInit() {
 	$args = array( 
@@ -36,21 +39,21 @@ function aitRatingCustomInit() {
 	register_post_type( 'ait-rating', $args );
 
 	// add capability
-	$capability_type = 'ait-rating';
+	$capabilityType = 'ait-rating';
 	$capabilitiesAdmin = array(
-		"edit_{$capability_type}" => true,
-		"read_{$capability_type}" => true,
-		"delete_{$capability_type}" => true,
-		"edit_{$capability_type}s" => true,
-		"edit_others_{$capability_type}s" => true,
-		"publish_{$capability_type}s" => true,
-		"read_private_{$capability_type}s" => true,
-		"delete_{$capability_type}s" => true,
-		"delete_private_{$capability_type}s" => true,
-		"delete_published_{$capability_type}s" => true,
-		"delete_others_{$capability_type}s" => true,
-		"edit_private_{$capability_type}s" => true,
-		"edit_published_{$capability_type}s" => true
+		"edit_{$capabilityType}" => true,
+		"read_{$capabilityType}" => true,
+		"delete_{$capabilityType}" => true,
+		"edit_{$capabilityType}s" => true,
+		"edit_others_{$capabilityType}s" => true,
+		"publish_{$capabilityType}s" => true,
+		"read_private_{$capabilityType}s" => true,
+		"delete_{$capabilityType}s" => true,
+		"delete_private_{$capabilityType}s" => true,
+		"delete_published_{$capabilityType}s" => true,
+		"delete_others_{$capabilityType}s" => true,
+		"edit_private_{$capabilityType}s" => true,
+		"edit_published_{$capabilityType}s" => true
 	);
 
 	// set admin capability
@@ -60,12 +63,12 @@ function aitRatingCustomInit() {
 	}
 
 	$capabilitiesDirRating = array(
-		"edit_{$capability_type}s" => true,
-		"read_private_{$capability_type}s" => false,
-		"edit_published_{$capability_type}s" => true,
-		"delete_{$capability_type}s" => true,
-		"delete_published_{$capability_type}s" => true,
-		"publish_{$capability_type}s" => true
+		"edit_{$capabilityType}s" => true,
+		"read_private_{$capabilityType}s" => false,
+		"edit_published_{$capabilityType}s" => true,
+		"delete_{$capabilityType}s" => true,
+		"delete_published_{$capabilityType}s" => true,
+		"publish_{$capabilityType}s" => true
 	);
 
 	$dirRole1 = get_role( 'directory_1' );
@@ -105,52 +108,105 @@ function aitRatingCustomInit() {
 
 }
 
-// hide add new rating button
-function aitRemoveAddRatingButton() {
+function aitRatingRemoveAddButton() {
+	remove_submenu_page('edit.php?post_type=ait-rating','post-new.php?post_type=ait-rating');
 	if((strpos($_SERVER['PHP_SELF'],'edit.php') !== false) && isset($_GET['post_type']) && ($_GET['post_type'] == 'ait-rating')){
 		echo '<style type="text/css">
 				a.add-new-h2 { display: none !important; }
 			</style>';
 	}
 }
-function aitRatingRemoveAdd() {
-	remove_submenu_page('edit.php?post_type=ait-rating','post-new.php?post_type=ait-rating');
-}
 
 // customize rating table
 function aitRatingChangeColumns($cols)	{
 	if (isDirectoryUser()) {
 		$cols = array(
-			'title'			=> __( 'Name', 'ait'),
+			'rating-name'   => __( 'Name', 'ait'),
 			'rating-post-id'=> __( 'Rating for', 'ait'),
-			'content'		=> __('Content', 'ait'),
-			'date'          => __('Date', 'ait'),
+			'rating-value'  => __( 'Rating', 'ait'),
+			'content'		=> __( 'Message', 'ait'),
+			'date'          => __( 'Date', 'ait'),
+			'rating-status' => __( 'Status', 'ait'),
 		);
 	} else {
 		$cols = array(
 			'cb'			=> '<input type="checkbox" />',
-			'title'			=> __( 'Name', 'ait'),
+			'rating-name'   => __( 'Name', 'ait'),
 			'rating-post-id'=> __( 'Rating for', 'ait'),
-			'content'		=> __('Content', 'ait'),
-			'date'          => __('Date', 'ait'),
+			'rating-value'  => __( 'Rating', 'ait'),
+			'content'		=> __( 'Message', 'ait'),
+			'date'          => __( 'Date', 'ait'),
+			'rating-status' => __( 'Status', 'ait'),
 		);
 	}
 	return $cols;
 }
 
+global $aitThemeOptions, $enabledRatings, $enabledRatingsMax;
+$enabledRatingsMax = intval($aitThemeOptions->rating->starsCount);
+$enabledRatings = array();
+for ($i=1; $i <= 5; $i++) {
+	$eName = 'rating'.$i.'Enable';
+	$tName = 'rating'.$i.'Title';
+	if (isset($aitThemeOptions->rating->$eName)) {
+		$enabledRatings[$i] = $aitThemeOptions->rating->$tName;
+	}
+}
+
 function aitRatingCustomColumns($column, $ratingId) {
 	switch($column){
+		case "rating-name":
+			$post = get_post( $ratingId );
+			echo $post->post_title;
+			break;
 		case "rating-post-id":
 			$postId = get_post_meta( $ratingId, 'post_id', true );
 			$postLink = get_permalink( $postId );
 			$post = get_post( $postId );
 			echo '<strong><a href="'.$postLink.'" target="_blank">'.$post->post_title.'</a></strong>';
 			break;
+		case "rating-value":
+			global $enabledRatings, $enabledRatingsMax;
+			$meanRounded = intval(get_post_meta( $ratingId, 'rating_mean_rounded', true ));
+			foreach ($enabledRatings as $key => $value) {
+				$rating = intval(get_post_meta( $ratingId, 'rating_'.$key, true ));
+				echo '<div class="rating clearfix">';
+				for($i = 1; $i <= $enabledRatingsMax; $i++) {
+					echo '<div class="star';
+					if ($i <= $rating) {
+						echo ' active';
+					}
+					echo '"></div>';
+				}
+				echo '<div class="rating-label">'.$value.'</div></div><div class="clearfix"></div>';
+			}
+			echo '<div class="rating clearfix">';
+			for($i = 1; $i <= $enabledRatingsMax; $i++) {
+				echo '<div class="star';
+				if ($i <= $meanRounded) {
+					echo ' active';
+				}
+				echo '"></div>';
+			}
+			echo '<div class="rating-label">'.__('Mean','ait').'</div></div><div class="clearfix"></div>';
+			break;
+		case "rating-status":
+			$post = get_post( $ratingId );
+			if ($post->post_status == 'publish') {
+				echo "<div style='color:green;'>".__("Approved","ait")."</div>";
+			} elseif ($post->post_status == 'pending') {
+				echo "<a href='".admin_url('edit.php?post_type=ait-rating&rating-approve=do&rating-id='.$ratingId)."' class='button'>".__("Approve","ait")."</a>";
+			}
+			break;
 	}
 }
 
+function aitRatingStyles() {
+	echo '<style> .clearfix { clear:both; } #the-list .rating { margin: 0px; padding: 0px; } #the-list .rating-value .rating-label { float: right; padding-right: 10px; } #the-list .rating-value .star { float: right; margin: 0px; padding: 0px; width: 16px; height: 16px; background: url("'.THEME_IMG_URL.'/star-big-default.png") no-repeat; } #the-list .rating-value .star.active { background: url("'.THEME_IMG_URL.'/star-big-active.png") no-repeat ; } </style>';
+}
+
 // Don't show others ratings for directory roles
-function aitRatingTableEdit($query) {
+function aitRatingTableDontShowOthersRatings($query) {
 	if (isDirectoryUser()) {
 		if((strpos($_SERVER['PHP_SELF'],'edit.php') !== false) && isset($_GET['post_type']) && ($_GET['post_type'] == 'ait-rating')){
 			$query->set('author',$GLOBALS['current_user']->ID);
@@ -158,7 +214,6 @@ function aitRatingTableEdit($query) {
 	}
 	return $query;
 }
-
 
 function aitRatingShowCorrectTableNumbers($views) {
 	if (isDirectoryUser()) {
@@ -234,7 +289,6 @@ function aitRatingShowCorrectTableNumbers($views) {
 }
 
 // Ratings meta boxes
-add_action( 'add_meta_boxes', 'aitRatingEditShowDetails' );
 function aitRatingEditShowDetails() {
 	add_meta_box(
 		'rating_details',
@@ -533,6 +587,41 @@ function aitSaveRatingMeanToDB($id, $post) {
 		update_post_meta( $itemId, 'rating_count', $rating['count']);
 		// also as associated array
 		update_post_meta( $itemId, 'rating', $rating);
+	}
+}
+
+
+if (isset($_GET['rating-approve']) && !empty($_GET['rating-id'])) {
+	$ratingId = intval($_GET['rating-id']);
+	// admin can approve all ratings
+	if (current_user_can( 'manage_options' ) ) {
+		aitRatingApprove($ratingId);
+	} else {
+		global $current_user;
+		$itemId = intval(get_post_meta( $ratingId, 'post_id', true ));
+		$item = get_post($itemId);
+		if (isset($current_user) && ($current_user->ID == intval($item->post_author))) {
+			aitRatingApprove($ratingId);
+		}
+	}
+}
+
+function aitRatingApprove($ratingId) {
+	global $ratingMessages;
+	$rating = get_post($ratingId,'ARRAY_A');
+	$rating['post_status'] = 'publish';
+	$chStatus = wp_insert_post( $rating, true );
+	if(is_wp_error( $chStatus )){
+		$ratingMessages = $chStatus->get_error_message();
+	} else {
+		$ratingMessages = __('Rating was approved!','ait');
+	}
+}
+
+function aitShowApprovedRatingNotice() {
+	global $ratingMessages;
+	if(isset($ratingMessages)){
+		echo '<div class="updated"><p>'.$ratingMessages.'</p></div>';
 	}
 }
 

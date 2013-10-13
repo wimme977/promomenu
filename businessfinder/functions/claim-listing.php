@@ -122,6 +122,31 @@ function aitAddNewClaim() {
 
 		update_post_meta( $claimId, 'status' , 'new' );
 
+		// send email to admin
+		if (isset($aitThemeOptions->directory->claimAdminEmail)) {
+			
+			$to = get_option('admin_email');
+			$subject = strip_tags($aitThemeOptions->directory->claimAdminEmailSubject);
+
+			$postLink = get_permalink( intval($_POST['itemId']) );
+			$post = get_post( intval($_POST['itemId']) );
+
+			$bodyHtml = $aitThemeOptions->directory->claimAdminEmailBody;
+			$bodyHtml = str_replace('[item]', '<a href="'.$postLink.'" target="_blank">'.$post->post_title.'</a>', $bodyHtml);
+			$bodyHtml = str_replace('[name]', $_POST['name'], $bodyHtml);
+			$bodyHtml = str_replace('[username]', $_POST['username'], $bodyHtml);
+			$bodyHtml = str_replace('[email]', $_POST['email'], $bodyHtml);
+			$bodyHtml = str_replace('[phone]', $_POST['number'], $bodyHtml);
+			$bodyHtml = str_replace('[message]', $_POST['message'], $bodyHtml);
+			$bodyHtml = str_replace('[link]', admin_url('/edit.php?post_type=ait-claim'), $bodyHtml);
+
+			$headers = 'From: ' . $aitThemeOptions->directory->claimAdminEmailFrom . "\r\n";
+			add_filter( 'wp_mail_content_type', 'aitSetHtmlMail' );
+			wp_mail($to, $subject, $bodyHtml, $headers );
+			remove_filter( 'wp_mail_content_type', 'aitSetHtmlMail' );
+
+		}
+
 		echo "success";
 
 	} else {
@@ -129,6 +154,10 @@ function aitAddNewClaim() {
 	}
 	exit();
 
+}
+
+function aitSetHtmlMail() {
+	return 'text/html';
 }
 
 function aitClaimChangeColumns($cols)	{
@@ -209,7 +238,7 @@ function aitApproveClaim($claimId) {
 		$user = get_userdata( $userId );
 		$user->set_role( $role );
 		// write activation time
-		writeActivationTime( $userId, $role );
+		aitDirWriteActivationTime( $userId, $role );
 
 		// change item author
 		$item = get_post($itemId,'ARRAY_A');
@@ -218,7 +247,7 @@ function aitApproveClaim($claimId) {
 
 		$chStatus = wp_insert_post( $itemUpdated, true );
 		if(is_wp_error( $chStatus )){
-			$claimMessages = $userId->get_error_message();
+			$claimMessages = $chStatus->get_error_message();
 		} else {
 			// change status
 			update_post_meta($claimId, 'status', 'approved');

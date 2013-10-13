@@ -37,7 +37,7 @@
 			</div> <!-- / .entry-container -->
 
 			<div class="entry-meta clearfix right">
-				<a href="{dayLink $post->date}" class="date meta-info" title="{$post->date|date:$site->dateFormat}" rel="bookmark">{$post->date|date:"F d, Y"}</a>
+				<a href="{dayLink $post->date}" class="date meta-info" title="{$post->date|date:$site->dateFormat}" rel="bookmark">{$post->date|date:$site->dateFormat}</a>
 				<a class="url fn n ln author meta-info" href="{$post->author->postsUrl}" title="View all posts by {$post->author->name}" rel="author">{$post->author->name}</a>
 				<span n:if="$post->type == 'post' && $post->categories" class="categories meta-info">{!$post->categories}</span>
 				<span class="comments meta-info">{$post->commentsCount}</span>

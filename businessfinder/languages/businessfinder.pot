@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the AIT BusinessFinder WordPress Theme.
 msgid ""
 msgstr ""
-"Project-Id-Version: BusinessFinder 1.6\n"
+"Project-Id-Version: BusinessFinder 1.8\n"
 "Report-Msgid-Bugs-To: http://support.ait-themes.com/categories/wp-businessfinder\n"
-"POT-Creation-Date: 2013-09-05T16:58:05+02:00\n"
+"POT-Creation-Date: 2013-09-18T17:01:06+02:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -162,8 +162,8 @@ msgid "Recent Places"
 msgstr ""
 
 #: \Templates\single-ait-dir-item.php:13
-#: \Templates\single-ait-dir-item.php:179
-#: \Templates\single-ait-dir-item.php:181
+#: \Templates\single-ait-dir-item.php:213
+#: \Templates\single-ait-dir-item.php:215
 msgid "Item image"
 msgstr ""
 
@@ -230,11 +230,17 @@ msgstr ""
 msgid "Contact owner"
 msgstr ""
 
-#: \Templates\single-ait-dir-item.php:136
+#: \Templates\single-ait-dir-item.php:135
+msgid "Contact Owner"
+msgstr ""
+
+#: \Templates\single-ait-dir-item.php:138
+#: \Templates\single-ait-dir-item.php:170
 msgid "Your name"
 msgstr ""
 
-#: \Templates\single-ait-dir-item.php:140
+#: \Templates\single-ait-dir-item.php:141
+#: \Templates\single-ait-dir-item.php:173
 msgid "Your email"
 msgstr ""
 
@@ -242,23 +248,55 @@ msgstr ""
 msgid "Subject"
 msgstr ""
 
-#: \Templates\single-ait-dir-item.php:148
+#: \Templates\single-ait-dir-item.php:147
 msgid "Your message"
 msgstr ""
 
-#: \Templates\single-ait-dir-item.php:151
+#: \Templates\single-ait-dir-item.php:149
 msgid "Send message"
 msgstr ""
 
-#: \Templates\single-ait-dir-item.php:154
+#: \Templates\single-ait-dir-item.php:152
 msgid "Your message has been successfully sent"
 msgstr ""
 
-#: \Templates\single-ait-dir-item.php:155
+#: \Templates\single-ait-dir-item.php:153
 msgid "Please fill out email, subject and message"
 msgstr ""
 
+#: \Templates\single-ait-dir-item.php:162
+msgid "Own this business?"
+msgstr ""
+
+#: \Templates\single-ait-dir-item.php:167
+msgid "Enter your claim"
+msgstr ""
+
+#: \Templates\single-ait-dir-item.php:176
+msgid "Your phone number"
+msgstr ""
+
+#: \Templates\single-ait-dir-item.php:179
+msgid "Username"
+msgstr ""
+
+#: \Templates\single-ait-dir-item.php:182
+msgid "Your claim message"
+msgstr ""
+
+#: \Templates\single-ait-dir-item.php:184
+msgid "Submit"
+msgstr ""
+
+#: \Templates\single-ait-dir-item.php:187
+msgid "Your claim has been successfully sent"
+msgstr ""
+
 #: \Templates\single-ait-dir-item.php:188
+msgid "Please fill out inputs!"
+msgstr ""
+
+#: \Templates\single-ait-dir-item.php:222
 msgid "Gallery image"
 msgstr ""
 
@@ -278,39 +316,35 @@ msgstr ""
 msgid "No result found"
 msgstr ""
 
-#: \Templates\snippets\branding-header.php:5
-msgid "You canceled payment. Your account was registered but without option to add items. Upgrade your account in admin to add items."
-msgstr ""
-
-#: \Templates\snippets\branding-header.php:87
+#: \Templates\snippets\branding-header.php:79
 msgid "My Items"
 msgstr ""
 
-#: \Templates\snippets\branding-header.php:90
+#: \Templates\snippets\branding-header.php:82
 msgid "Ratings"
 msgstr ""
 
-#: \Templates\snippets\branding-header.php:93
+#: \Templates\snippets\branding-header.php:86
 msgid "Account"
 msgstr ""
 
-#: \Templates\snippets\branding-header.php:96
+#: \Templates\snippets\branding-header.php:89
 msgid "View site"
 msgstr ""
 
-#: \Templates\snippets\branding-header.php:102
+#: \Templates\snippets\branding-header.php:95
 msgid "Logout"
 msgstr ""
 
-#: \Templates\snippets\branding-header.php:104
+#: \Templates\snippets\branding-header.php:97
 msgid "Admin"
 msgstr ""
 
-#: \Templates\snippets\branding-header.php:107
+#: \Templates\snippets\branding-header.php:100
 msgid "Login"
 msgstr ""
 
-#: \Templates\snippets\branding-header.php:121
+#: \Templates\snippets\branding-header.php:114
 msgid "Main Menu"
 msgstr ""
 
@@ -338,15 +372,15 @@ msgstr ""
 
 #: \Templates\snippets\content-loop-dir-search.php:12
 #: \Templates\snippets\content-loop-dir-search.php:60
-#: \Templates\taxonomy-ait-dir-item-category.php:71
-#: \Templates\taxonomy-ait-dir-item-location.php:73
+#: \Templates\taxonomy-ait-dir-item-category.php:72
+#: \Templates\taxonomy-ait-dir-item-location.php:74
 msgid "Item thumbnail"
 msgstr ""
 
 #: \Templates\snippets\content-loop-dir-search.php:42
 #: \Templates\snippets\content-loop-dir-search.php:83
-#: \Templates\taxonomy-ait-dir-item-category.php:102
-#: \Templates\taxonomy-ait-dir-item-location.php:103
+#: \Templates\taxonomy-ait-dir-item-category.php:103
+#: \Templates\taxonomy-ait-dir-item-location.php:104
 msgid "No rating yet."
 msgstr ""
 
@@ -508,47 +542,43 @@ msgstr ""
 msgid "Account: "
 msgstr ""
 
-#: ait-directory-login-widget.php:64
+#: ait-directory-login-widget.php:66
 msgid "Register"
 msgstr ""
 
-#: ait-directory-login-widget.php:78
-msgid "Username"
-msgstr ""
-
-#: ait-directory-login-widget.php:82
+#: ait-directory-login-widget.php:84
 msgid "Email"
 msgstr ""
 
-#: ait-directory-login-widget.php:86
+#: ait-directory-login-widget.php:88
 msgid "Package"
 msgstr ""
 
-#: ait-directory-login-widget.php:100
+#: ait-directory-login-widget.php:102
 msgid "Free"
 msgstr ""
 
-#: ait-directory-login-widget.php:108
+#: ait-directory-login-widget.php:110
 msgid "Sign up!"
 msgstr ""
 
-#: ait-directory-login-widget.php:138
+#: ait-directory-login-widget.php:140
 msgid "Sign up"
 msgstr ""
 
-#: ait-directory-login-widget.php:139
+#: ait-directory-login-widget.php:141
 msgid "Buy with PayPal"
 msgstr ""
 
-#: ait-directory-login-widget.php:196
+#: ait-directory-login-widget.php:198
 msgid "Login Description"
 msgstr ""
 
-#: ait-directory-login-widget.php:198
+#: ait-directory-login-widget.php:200
 msgid "Logout Description"
 msgstr ""
 
-#: ait-directory-login-widget.php:200
+#: ait-directory-login-widget.php:202
 msgid "Register Description"
 msgstr ""
 
@@ -612,167 +642,287 @@ msgstr ""
 msgid "Theme &rarr; Submenu"
 msgstr ""
 
-#: directory.php:701 rating.php:219
+#: directory-register.php:29 directory-register.php:32
+msgid "year"
+msgstr ""
+
+#: directory-register.php:35
+msgid "month"
+msgstr ""
+
+#: directory-register.php:38
+msgid "week"
+msgstr ""
+
+#: directory-register.php:41
+msgid "day"
+msgstr ""
+
+#: directory-register.php:50
+msgid "per"
+msgstr ""
+
+#: accounts-reg.php:112
+msgid "Directory Package"
+msgstr ""
+
+#: accounts-reg.php:113
+msgid "Upgrade to "
+msgstr ""
+
+#: accounts-reg.php:116
+msgid " Upgrade"
+msgstr ""
+
+#: accounts-reg.php:145
+msgid "for"
+msgstr ""
+
+#: accounts-reg.php:177 accounts-reg.php:210
+msgid "ERROR: Bad paypal API settings! Check paypal api credentials in admin settings!"
+msgstr ""
+
+#: accounts-reg.php:226 accounts-reg.php:375
+msgid "Your directory account was upgraded!"
+msgstr ""
+
+#: accounts-reg.php:228 accounts-reg.php:377
+msgid "Your directory account was activated! Check your email address for password!"
+msgstr ""
+
+#: accounts-reg.php:341
+msgid "PayPal recurring payments profile created. Your directory account was upgraded!"
+msgstr ""
+
+#: accounts-reg.php:343
+msgid "PayPal recurring payments profile created. Your directory account was activated! Check your email address for password!"
+msgstr ""
+
+#: accounts-reg.php:401
+msgid "You canceled payment. Your account wasn't changed."
+msgstr ""
+
+#: accounts-reg.php:405
+msgid "You canceled payment. Your account was registered but without option to add items. Upgrade your account in admin to add items."
+msgstr ""
+
+#: accounts-reg.php:413
+msgid "PayPal recurring payments profile is active."
+msgstr ""
+
+#: accounts-reg.php:413
+msgid "PayPal recurring payments profile isn't active."
+msgstr ""
+
+#: accounts-reg.php:433 accounts-reg.php:444
+msgid "Directory Account"
+msgstr ""
+
+#: accounts-reg.php:454
+msgid "None"
+msgstr ""
+
+#: accounts-reg.php:467
+msgid "Non-active"
+msgstr ""
+
+#: accounts-reg.php:479
+msgid "Account type"
+msgstr ""
+
+#: accounts-reg.php:485
+msgid "PayPal profile"
+msgstr ""
+
+#: accounts-reg.php:491
+msgid "PayPal profile ID"
+msgstr ""
+
+#: accounts-reg.php:496
+msgid "PayPal profile status"
+msgstr ""
+
+#: accounts-reg.php:501 accounts.php:469
+msgid "Days left before expiration"
+msgstr ""
+
+#: accounts-reg.php:510
+msgid "Upgrade account"
+msgstr ""
+
+#: accounts-reg.php:568
+msgid "Upgrade Account"
+msgstr ""
+
+#: accounts-reg.php:572
+msgid "Profile"
+msgstr ""
+
+#: accounts-reg.php:691
+msgid "Expired"
+msgstr ""
+
+#: accounts-reg.php:694
+msgid "Unlimited"
+msgstr ""
+
+#: accounts-reg.php:712
+msgid "ERROR: User registration is currently not allowed."
+msgstr ""
+
+#: accounts-reg.php:721
+msgid "ERROR: Please enter a username."
+msgstr ""
+
+#: accounts-reg.php:723
+msgid "ERROR: This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr ""
+
+#: accounts-reg.php:726
+msgid "ERROR: This username is already registered. Please choose another one."
+msgstr ""
+
+#: accounts-reg.php:731
+msgid "ERROR: Please type your e-mail address."
+msgstr ""
+
+#: accounts-reg.php:733
+msgid "ERROR: The email address isn&#8217;t correct."
+msgstr ""
+
+#: accounts-reg.php:736
+msgid "ERROR: This email is already registered, please choose another one."
+msgstr ""
+
+#: accounts-reg.php:749
+msgid "ERROR: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
+msgstr ""
+
+#: accounts.php:238 rating.php:267
 msgctxt "posts"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: directory.php:733
+#: accounts.php:269
 msgid "Sorry but you have maximum items for your account type. Upgrade your account to insert new items!"
 msgstr ""
 
-#: directory.php:747 directory.php:757
-msgid "Directory Account"
+#: accounts.php:466
+msgid "PayPal recurring payments profile ID"
 msgstr ""
 
-#: directory.php:767
-msgid "None"
-msgstr ""
-
-#: directory.php:780
-msgid "Account type"
-msgstr ""
-
-#: directory.php:784
-msgid "Days left before expiration"
-msgstr ""
-
-#: directory.php:791
-msgid "Upgrade account"
-msgstr ""
-
-#: directory.php:825
-msgid "Upgrade Account"
-msgstr ""
-
-#: directory.php:829
-msgid "Profile"
-msgstr ""
-
-#: directory.php:850
-msgid "ERROR: User registration is currently not allowed."
-msgstr ""
-
-#: directory.php:859
-msgid "ERROR: Please enter a username."
-msgstr ""
-
-#: directory.php:861
-msgid "ERROR: This username is invalid because it uses illegal characters. Please enter a valid username."
-msgstr ""
-
-#: directory.php:864
-msgid "ERROR: This username is already registered. Please choose another one."
-msgstr ""
-
-#: directory.php:869
-msgid "ERROR: Please type your e-mail address."
-msgstr ""
-
-#: directory.php:871
-msgid "ERROR: The email address isn&#8217;t correct."
-msgstr ""
-
-#: directory.php:874
-msgid "ERROR: This email is already registered, please choose another one."
-msgstr ""
-
-#: directory.php:887
-msgid "ERROR: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
-msgstr ""
-
-#: directory.php:989
-msgid "Directory Package"
-msgstr ""
-
-#: directory.php:992
-msgid " Upgrade"
-msgstr ""
-
-#: directory.php:1028 directory.php:1039
-msgid "ERROR: Bad paypal API settings! Check paypal api credentials in admin settings!"
-msgstr ""
-
-#: directory.php:1051 directory.php:1103
-msgid "Your directory account was upgraded!"
-msgstr ""
-
-#: directory.php:1053 directory.php:1107
-msgid "Your directory account was activated! Check your email address for password!"
-msgstr ""
-
-#: directory.php:1390
-msgid "Expired"
-msgstr ""
-
-#: directory.php:1393
-msgid "Unlimited"
-msgstr ""
-
-#: directory.php:1419
+#: accounts.php:468
 msgid "Activation time"
 msgstr ""
 
-#: directory.php:1420
+#: accounts.php:470
 msgid "Last PayPal transaction ID"
 msgstr ""
 
-#: directory.php:1461
+#: claim-listing.php:86
+msgid "This username is already registered. Please choose another one."
+msgstr ""
+
+#: claim-listing.php:90
+msgid "This email is already registered, please choose another one."
+msgstr ""
+
+#: claim-listing.php:99 directory.php:491
 msgid "Bad nonce"
 msgstr ""
 
-#: directory.php:1469
-msgid "Error with sending email"
+#: claim-listing.php:153
+msgid "Please fill out inputs"
 msgstr ""
 
-#: rating.php:131 rating.php:139
+#: claim-listing.php:166 rating.php:124 rating.php:134
 msgid "Name"
 msgstr ""
 
-#: rating.php:132 rating.php:140
+#: claim-listing.php:169
+msgid "Phone number"
+msgstr ""
+
+#: claim-listing.php:170
+msgid "Claim for"
+msgstr ""
+
+#: claim-listing.php:171 rating.php:127 rating.php:137
+msgid "Message"
+msgstr ""
+
+#: claim-listing.php:172
+msgid "Created"
+msgstr ""
+
+#: claim-listing.php:173 rating.php:129 rating.php:139
+msgid "Status"
+msgstr ""
+
+#: claim-listing.php:209 rating.php:196
+msgid "Approved"
+msgstr ""
+
+#: claim-listing.php:211 rating.php:198
+msgid "Approve"
+msgstr ""
+
+#: claim-listing.php:255
+msgid "Claim was approved! New user was registered and assignated to Item. Email with generated password was sent."
+msgstr ""
+
+#: directory.php:499
+msgid "Error with sending email"
+msgstr ""
+
+#: rating.php:125 rating.php:135
 msgid "Rating for"
 msgstr ""
 
-#: rating.php:133 rating.php:141
-msgid "Content"
+#: rating.php:191
+msgid "Mean"
 msgstr ""
 
-#: rating.php:248
+#: rating.php:295
 msgid "Rating Details"
 msgstr ""
 
-#: rating.php:258
+#: rating.php:305
 msgid "Rating for: "
 msgstr ""
 
-#: rating.php:415
+#: rating.php:462
 msgid "Leave a review"
 msgstr ""
 
-#: rating.php:417 rating.php:428
+#: rating.php:464 rating.php:475
 msgid "Your rating has been successfully sent"
 msgstr ""
 
-#: rating.php:419
+#: rating.php:466
 msgid "You have already rated"
 msgstr ""
 
-#: rating.php:424
+#: rating.php:471
 msgid "Your Name"
 msgstr ""
 
-#: rating.php:425
+#: rating.php:472
 msgid "Description"
 msgstr ""
 
-#: rating.php:426
+#: rating.php:473
 msgid "Send rating"
 msgstr ""
 
-#: rating.php:427
+#: rating.php:474
 msgid "Please fill out all fields!"
+msgstr ""
+
+#: rating.php:617
+msgid "Rating was approved!"
 msgstr ""
 
 #: easy-admin-footer.php:5

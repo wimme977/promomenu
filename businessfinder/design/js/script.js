@@ -376,6 +376,9 @@ function CloseableComments() {
 }
 
 function ApplyLightbox(){
+	// make galleries
+	$j(".gallery a").attr('rel', 'prettyPhoto[gallery]');
+	// apply pretty photo
 	$j("a[href$='gif'], a[href$='jpg'], a[href$='png']").prettyPhoto({social_tools:false, deeplinking: false});
 }
 

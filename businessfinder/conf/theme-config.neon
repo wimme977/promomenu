@@ -90,6 +90,24 @@ generalOptions:
 							label: Account type 4
 						directory_5:
 							label: Account type 5
+				claimAdminEmail:
+					label: "Send email to admin when someone claims the listing"
+					type: checkbox
+					default:
+						enable:
+							label: 'Yes'
+				claimAdminEmailFrom:
+					label: "Admin email from"
+					type: text
+					default: "My Name <myname@example.com>"
+				claimAdminEmailSubject:
+					label: "Admin email subject"
+					type: text
+					default: "New claim"
+				claimAdminEmailBody:
+					label: "Admin email body"
+					type: textarea
+					default: "New claim was created for Item: [item] \n<br>\n<br>Contact name: [name]\n<br>User name: [username]\n<br>Email: [email]\n<br>Phone: [phone]\n<br>Message: [message]\n<br>\n<br>Manage claims: [link]"
 				"Defaults": section-title
 				defaultLocationIcon:
 					label: Default Location Icon
@@ -358,7 +376,7 @@ generalOptions:
 				searchItemsPerPage:
 					label: "Show number of items per page (pagination)"
 					type: text
-					default: 10
+					default: 9
 				"Search fields": section-title
 				searchCategoriesHierarchical:
 					label: "Sort categories in dropdown hierarcicaly"
@@ -493,6 +511,15 @@ generalOptions:
 							checked: true
 						live:
 							label: "Use live (real) enviroment"
+				paypalPaymentType:
+					label: "PayPal Payment Type"
+					type: radio
+					default:
+						single:
+							label: "Single payments"
+							checked: true
+						recurring:
+							label: "Recurring payments (Subscriptions)"
 				paypalUser:
 					label: "PayPal API Username"
 					type: text
@@ -541,9 +568,22 @@ generalOptions:
 					type: text
 					default: 1
 				role1Time:
-					label: "Account expiration limit in days (0 for unlimited)"
+					label: "Account expiration limit in days (0 for unlimited). Used for free and single paypal payments."
 					type: text
 					default: 0
+				role1Period:
+					label: "Billing period. Used for paypal recurring payments."
+					type: select
+					default:
+						Year:
+							label: Year
+							checked: true
+						Month:
+							label: Month
+						Week:
+							label: Week
+						Day: 
+							label: Day
 				"Account type 1 Capabilities": section-title
 				role1Content:
 					label: "Content (editor)"
@@ -671,9 +711,22 @@ generalOptions:
 					type: text
 					default: 5
 				role2Time:
-					label: "Account expiration limit in days (0 for unlimited)"
+					label: "Account expiration limit in days (0 for unlimited). Used for free and single paypal payments."
 					type: text
 					default: 0
+				role2Period:
+					label: "Billing period. Used for paypal recurring payments."
+					type: select
+					default:
+						Year:
+							label: Year
+							checked: true
+						Month:
+							label: Month
+						Week:
+							label: Week
+						Day: 
+							label: Day
 				"Account type 2 Capabilities": section-title
 				role2Content:
 					label: "Content (editor)"
@@ -801,9 +854,22 @@ generalOptions:
 					type: text
 					default: 15
 				role3Time:
-					label: "Account expiration limit in days (0 for unlimited)"
+					label: "Account expiration limit in days (0 for unlimited). Used for free and single paypal payments."
 					type: text
 					default: 0
+				role3Period:
+					label: "Billing period. Used for paypal recurring payments."
+					type: select
+					default:
+						Year:
+							label: Year
+							checked: true
+						Month:
+							label: Month
+						Week:
+							label: Week
+						Day: 
+							label: Day
 				"Account type 3 Capabilities": section-title
 				role3Content:
 					label: "Content (editor)"
@@ -931,9 +997,22 @@ generalOptions:
 					type: text
 					default: 20
 				role4Time:
-					label: "Account expiration limit in days (0 for unlimited)"
+					label: "Account expiration limit in days (0 for unlimited). Used for free and single paypal payments."
 					type: text
 					default: 0
+				role4Period:
+					label: "Billing period. Used for paypal recurring payments."
+					type: select
+					default:
+						Year:
+							label: Year
+							checked: true
+						Month:
+							label: Month
+						Week:
+							label: Week
+						Day: 
+							label: Day
 				"Account type 4 Capabilities": section-title
 				role4Content:
 					label: "Content (editor)"
@@ -1061,9 +1140,22 @@ generalOptions:
 					type: text
 					default: 50
 				role5Time:
-					label: "Account expiration limit in days (0 for unlimited)"
+					label: "Account expiration limit in days (0 for unlimited). Used for free and single paypal payments."
 					type: text
 					default: 0
+				role5Period:
+					label: "Billing period. Used for paypal recurring payments."
+					type: select
+					default:
+						Year:
+							label: Year
+							checked: true
+						Month:
+							label: Month
+						Week:
+							label: Week
+						Day: 
+							label: Day
 				"Account type 5 Capabilities": section-title
 				role5Content:
 					label: "Content (editor)"
