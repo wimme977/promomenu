@@ -209,3 +209,22 @@ if(isset($revSliderVersion)){
 // --------------------------------------------------
 
 require_once dirname(__FILE__) . '/functions/load.php';
+
+
+// CUSTOM PROMOMENU CHANGES -- TTT
+function tttReservationColumns($columns)
+{
+    $columns['promomenu-reservations-url'] = __('Reservations');
+    return $columns;
+}
+add_filter('manage_ait-dir-item_posts_columns', 'tttReservationColumns');
+
+
+function tttReservationColumnsContent($column, $post_id) {
+	switch($column){
+                case "promomenu-reservations-url":                    
+                    echo "<a class='add-item button button-primary' href='".  get_admin_url()."edit.php'>".__("Check reservations")."</a>";
+                break;
+	}
+}
+add_action( "manage_posts_custom_column", "tttReservationColumnsContent");
